@@ -9,7 +9,7 @@ db = client.flask_db
 spark = db.spark
 
 
-@app.route('/home')
+@app.route('/')
 def index():
     return render_template('home.html')
 
