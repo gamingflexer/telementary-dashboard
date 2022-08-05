@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.css">
+ <title>Home Page</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo">
+        <h2>SPARKS</h2>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="grid">
+        <div class="ct">CELL TEMP 1</div>
+        <div class="ct">56</div>
+        <div class="ct">CELL TEMP 2</div>
+        <div class="ct">60</div>
+        <div class="ct">CELL TEMP 3</div>
+        <div class="ct">67</div>
+        <div class="ct">CELL TEMP 4</div>
+        <div class="ct">76</div>
+        <div class="ct">CELL TEMP 5</div>
+        <div class="ct">56</div>
+        <div class="ct">CELL TEMP 6</div>
+        <div class="ct">78</div>  
+      </div>
+      
+    </div>
+    <div class="main">
+      <div class="cards">
+        <div class="card">
+          <div class="card-content">
+            <div class="number">89 <sub style="background-color: #BFD7ED;">bpm</sub> 
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="charts">
+        <div class="graph" >
+          <h2  >
+            HERTBEATS
+           </h2>
+           <canvas id="linechart"></canvas>
+        </div>
+       <div class="map">
+        <h2>
+          MAP
+        </h2>
+        <div>
+          <iframe width="800" height="600" frameborder="0" src="https://www.bing.com/maps/embed?h=600&w=800&cp=19.
+          032910612586065~73.04191589355469&lvl=11&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
+          </iframe>
+        </div>
+       </div> 
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="backend\static\chart.js"></script>
+</body>
+</html>

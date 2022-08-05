@@ -1,39 +1,68 @@
 <!DOCTYPE html>
-<html style="background-color:black;">
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Homepage.css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales'],
-          ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+  <title>Home Page</title>
 </head>
+
 <body>
-<div1>
-  <img src="heart.png" alt="heart">
-</div1>
-<div2>
-  <div id="curve_chart" style="width: 900px; height: 500px"></div>
-</div2>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo">
+        <img src="logo_t.png" alt="logo">
+      </div>
+    </div>
+    <div class="sidebar">
+      <h2>
+        CELL TEMPERATURE
+      </h2>
+      <div class="grid">
+        <div class="ct">CELL TEMP 1</div>
+        <div class="ct">56</div>
+        <div class="ct">CELL TEMP 2</div>
+        <div class="ct">60</div>
+        <div class="ct">CELL TEMP 3</div>
+        <div class="ct">67</div>
+        <div class="ct">CELL TEMP 4</div>
+        <div class="ct">76</div>
+        <div class="ct">CELL TEMP 5</div>
+        <div class="ct">56</div>
+        <div class="ct">CELL TEMP 6</div>
+        <div class="ct">78</div>  
+      </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      
+    </div>
+    <div class="main">
+      <div class="cards">
+        <div class="card">
+          <div class="card-content">
+            <div class="number">89 <sub style="background-color: #BFD7ED;">bpm</sub> 
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="charts">
+        <div class="graph" >
+          <h2  >
+            HERTBEATS
+           </h2>
+           <canvas id="linechart"></canvas>
+        </div>
+        <div class="maps">
+          <h2>
+           MAP
+          </h2>
+        </div> 
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="chart.js"></script>
 </body>
 </html>
