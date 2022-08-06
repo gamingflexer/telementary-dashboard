@@ -1,3 +1,5 @@
+drawChart();
+async function drawChart(){
 const ctx = document.getElementById('linechart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
@@ -25,3 +27,11 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+};
+async function fetchData(){
+    const url = "{{ url_for('data', filename='csv/heartbeat.csv')}}";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+}
+

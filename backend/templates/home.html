@@ -13,10 +13,21 @@
   <div class="container">
     <div class="topbar">
       <div class="logo">
-        <h2>SPARKS</h2>
+        <img src="{{ url_for('static',filename='images/logo_t.png')}}" alt="logo">
       </div>
     </div>
     <div class="sidebar">
+      <div class="cards">
+        <div class="card">
+          <div class="card-content">
+            <div class="number">89 <sub style="background-color: #BFD7ED;">bpm</sub> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2>
+        CELL TEMPERATURE
+      </h2>
       <div class="grid">
         <div class="ct">CELL TEMP 1</div>
         <div class="ct">56</div>
@@ -34,28 +45,21 @@
       
     </div>
     <div class="main">
-      <div class="cards">
-        <div class="card">
-          <div class="card-content">
-            <div class="number">89 <sub style="background-color: #BFD7ED;">bpm</sub> 
-            </div>
-            
-          </div>
-        </div>
-      </div>
+     
       <div class="charts">
         <div class="graph" >
           <h2  >
             HERTBEATS
            </h2>
            <canvas id="linechart"></canvas>
+           <button onclick="fetchData()">fetch</button>
         </div>
        <div class="map">
         <h2>
           MAP
         </h2>
         <div>
-          <iframe width="800" height="600" frameborder="0" src="https://www.bing.com/maps/embed?h=600&w=800&cp=19.
+          <iframe  frameborder="0" height="400" width="600"src="https://www.bing.com/maps/embed?h=600&w=800&cp=19.
           032910612586065~73.04191589355469&lvl=11&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
           </iframe>
         </div>
@@ -63,7 +67,10 @@
       </div>
     </div>
   </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
   <script src="{{ url_for('static', filename='js/chart.js')}}"></script>
+  
 </body>
 </html>
+

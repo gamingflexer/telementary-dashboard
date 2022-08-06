@@ -129,6 +129,14 @@
   color: #D3F4FB;
   text-align: center;
 }
-
+@media (max-width: 300px){
+  .sidebar{
+    width: 60px;
+  }
+  .main{
+    left : 60px;
+    width: calc(100% - 60px);
+  }
+}
 
 
