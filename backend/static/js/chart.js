@@ -1,5 +1,4 @@
-drawChart();
-async function drawChart() {
+
     const ctx = document.getElementById('linechart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'line',
@@ -27,10 +26,9 @@ async function drawChart() {
             }
         }
     });
-};
 
-let stopped = false
-let isstopped = 1;
+//let stopped = false
+//let isstopped = 1;
 
 async function fetchData() {
     const url = "api/heartbeat";
@@ -38,15 +36,33 @@ async function fetchData() {
     const datapoints = await response.text();
     console.log(datapoints)
 }
-function chartheart (){
-while (!stopped) {
-    isstopped = isstopped +1 ;
-    if (isstopped > 100) {
-        stopped = true;
-    fetchData();
-    };
-}
-}
+//function chartheart (){
+//while (!stopped) {
+  //  isstopped = isstopped +1 ;
+    //if (isstopped > 100) {
+      //  stopped = true;
+//    fetchData();
+  //  };
+//}
+//}
 
 var timer = setInterval(fetchData,3000)
 fetchData();
+
+/*fetchData().then(datapoints => {
+    const time = datapoints.data.map((time, index)
+    => {
+        return time.timestamp;
+    });
+
+    const value =datapoints.data.map((value, index)
+    => {
+        return value.heartbeat;
+    })
+    console.log(value)
+
+    myChart.data.labels = time;
+    myChart.update();
+}
+    )
+*/
