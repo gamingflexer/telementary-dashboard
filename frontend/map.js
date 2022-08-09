@@ -11,3 +11,36 @@ map.addLayer(layer);
 
 let marker = new L.Marker([18.9890344,73.0793375]);
 marker.addTo(map);
+
+
+var data = [{
+    type:'scattermapbox',
+    lat:['44.968046'],
+    lon:['-94.420307'],
+    mode:'markers',
+    marker: {
+      size:14
+    },
+    text:['Montreal']
+  }]
+  
+  var layout = {
+    autosize: true,
+    hovermode:'closest',
+    mapbox: {
+      bearing:0,
+      center: {
+        lat:45,
+        lon:-73
+      },
+      pitch:0,
+      zoom:5
+    },
+  }
+  
+  Plotly.setPlotConfig({
+    mapboxAccessToken: "your access token"
+  })
+  
+  Plotly.newPlot('myDiv', data, layout)
+  

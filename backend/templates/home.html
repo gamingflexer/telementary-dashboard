@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
   <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.1.1/maplibre-gl.js"></script>
+  <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.1.1/maplibre-gl.css" rel="stylesheet" />
+ 
  <title>Home Page</title>
 
 </head>
@@ -27,9 +32,9 @@
           </div>
         </div>
       </div>
-      <h2>
+      <p>
         CELL TEMPERATURE
-      </h2>
+      </p>
       <div class="grid">
         <div class="ct">CELL TEMP 1</div>
         <div class="ct">56</div>
@@ -55,23 +60,27 @@
            </h2>
            <p id="csv"></p>
            <p id="json"></p>
-           <div id="myPlot" style="width: 650px; height: 500px; "></div>
+           <div id="chartContainer" style="width: 650px; height: 500px; "></div>
+           <button type="button">Start</button>
+           <button type="button">Stop</button>
         </div>
-       <div class="map">
-        <h2>
-          MAP
-        </h2>
-        <div>
-          <iframe  frameborder="0" height="600" width="700"src="https://www.bing.com/maps/embed?h=600&w=800&cp=18.9890344~73.0793375&lvl=11&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
-          </iframe>
+       
+        <div class="maps">
+          <div id="map" style="width: 700px; height: 600px;">
+          <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>
         </div>
-       </div> 
+        <button type="button">Start</button>
+           <button type="button">Stop</button>
+          </div> 
       </div>
     </div>
   </div>
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
   <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/map.js')}}"></script>
+
+
 
   
 </body>
