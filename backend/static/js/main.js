@@ -29,3 +29,17 @@ window.onload = function () {
         });
     }
 }
+
+// Get call for single Heart beat
+
+async function fetchData2() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('heartratesingle').innerText = datapoints + ' bpm';
+    return datapoints;
+}
+
+var timer = setInterval(fetchData2,1000)
+dataheartbeat = fetchData2();
