@@ -22,8 +22,9 @@ def index():
 @app.route('/api/heartbeat', methods=['GET'])
 def heartbeat():
     if request.method == 'GET':
-        t = time.localtime(time.time())
-        return jsonify([[t.tm_sec,rd.randint(80.0, 100.0)]])
+        data = pd.read_csv(heart_beat_csv)
+        out = data.to_dict(orient='records')
+        return jsonify({'data': out})
 
 @app.route('/api/location', methods=['GET'])
 def location():
