@@ -22,7 +22,7 @@ def heartbeat():
     if request.method == 'GET':
         data = pd.read_csv(heart_beat_csv)
         out = data.to_dict(orient='records')
-        return jsonify({'data': out})
+        return jsonify({'data': out[:2]})
 
 @app.route('/api/location', methods=['GET'])
 def location():
