@@ -4,7 +4,7 @@ from config import *
 import pandas as pd
 import time
 import random as rd
-from path import heart_beat_csv,location_csv #sample data for testing
+from path import heart_beat_csv,location_csv#sample data for testing
 
 app = Flask(__name__)
 

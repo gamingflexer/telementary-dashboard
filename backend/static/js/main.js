@@ -40,6 +40,71 @@ async function fetchData2() {
     document.getElementById('heartratesingle').innerText = datapoints + ' bpm';
     return datapoints;
 }
-
 var timer = setInterval(fetchData2,1000)
 dataheartbeat = fetchData2();
+
+async function fetchData3() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp1').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData3,1000)
+dataheartbeat = fetchData3();
+
+async function fetchData4() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp2').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData4,1000)
+dataheartbeat = fetchData4();
+
+async function fetchData5() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp3').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData5,1000)
+dataheartbeat = fetchData5();
+
+async function fetchData6() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp4').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData6,1000)
+dataheartbeat = fetchData6();
+
+async function fetchData7() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp5').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData7,1000)
+dataheartbeat = fetchData7();
+
+async function fetchData8() {
+    const url = "api/heartbeat-single";
+    const response = await fetch(url);
+    const datapoints = await response.text();
+    console.log(datapoints)
+    document.getElementById('temp6').innerText = datapoints;
+    return datapoints;
+}
+var timer = setInterval(fetchData8,1000)
+dataheartbeat = fetchData8();

@@ -44,7 +44,7 @@
  }
 
  .grid {
-  padding-top: calc(8%);
+  padding-top: calc(5%);
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
