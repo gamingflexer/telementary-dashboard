@@ -25,7 +25,21 @@ window.onload = function () {
                 });
             });
             chart.render();
-            setTimeout(function () { updateChart() }, 1000);
+
+            var cnt = 0;
+            setTimeout(function () { 
+                updateChart() 
+            
+                cnt++;
+                if(cnt > 40){
+                    plotly.relayout('chart',{
+                        xaxis: {
+                            range: [cnt , cnt - 40]
+                        }
+                        
+                    });
+                }
+            }, 1000);
         });
     }
 }
