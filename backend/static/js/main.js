@@ -17,8 +17,7 @@ window.onload = function () {
     function updateChart() {
         $.getJSON("/api/heartbeat", function (data) {
             $.each(data, function (key, value) {
-
-                console.log(value);
+                console.log(dataPoints)
                 dataPoints.push({
                     x: parseInt(value[0]),
                     y: parseInt(value[1])
@@ -29,7 +28,9 @@ window.onload = function () {
             var cnt = 0;
             setTimeout(function () { 
                 updateChart() 
-            
+                if (dataPoints.length > 10) {
+                    dataPoints.shift()
+                }
                 cnt++;
                 if(cnt > 40){
                     plotly.relayout('chart',{
