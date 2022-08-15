@@ -1,16 +1,10 @@
 from flask import Flask, render_template , Response , request , jsonify
-from pymongo import MongoClient
-from config import *
 import pandas as pd
 import time
 import random as rd
 from path import heart_beat_csv,location_csv#sample data for testing
 
 app = Flask(__name__)
-
-client = MongoClient(f"mongodb+srv://{username}:{password}@cluster0.zuo6mr7.mongodb.net/?retryWrites=true&w=majority")
-db = client.flask_db
-spark = db.spark
 
 
 @app.route('/')
