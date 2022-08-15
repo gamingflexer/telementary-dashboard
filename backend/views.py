@@ -1,5 +1,7 @@
 from config import *
 from pymongo import MongoClient
+from models import CarInfo
+from serializers import CarInfoSerializer
 
 
 client = MongoClient(f"mongodb+srv://{username}:{password}@cluster0.zuo6mr7.mongodb.net/?retryWrites=true&w=majority")
