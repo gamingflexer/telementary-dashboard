@@ -17,7 +17,6 @@ function chart() {
     function updateChart() {
         $.getJSON("/api/heartbeat", function (data) {
             $.each(data, function (key, value) {
-                console.log(dataPoints)
                 dataPoints.push({
                     x: parseInt(value[0]),
                     y: parseInt(value[1])
@@ -52,7 +51,6 @@ async function fetchData2() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('heartratesingle').innerText = datapoints + ' bpm';
     return datapoints;
 }
@@ -63,7 +61,6 @@ async function fetchData3() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp1').innerText = datapoints;
     return datapoints;
 }
@@ -74,7 +71,6 @@ async function fetchData4() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp2').innerText = datapoints;
     return datapoints;
 }
@@ -85,7 +81,6 @@ async function fetchData5() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp3').innerText = datapoints;
     return datapoints;
 }
@@ -96,7 +91,6 @@ async function fetchData6() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp4').innerText = datapoints;
     return datapoints;
 }
@@ -107,7 +101,6 @@ async function fetchData7() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp5').innerText = datapoints;
     return datapoints;
 }
@@ -118,7 +111,6 @@ async function fetchData8() {
     const url = "api/heartbeat-single";
     const response = await fetch(url);
     const datapoints = await response.text();
-    console.log(datapoints)
     document.getElementById('temp6').innerText = datapoints;
     return datapoints;
 }
