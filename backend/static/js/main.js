@@ -1,4 +1,4 @@
-window.onload = function () {
+function chart() {
     var dataPoints = [];
     var chart;
     $.getJSON("/api/heartbeat", function (data) {
@@ -45,6 +45,7 @@ window.onload = function () {
     }
 }
 
+
 // Get call for single Heart beat
 
 async function fetchData2() {
@@ -55,7 +56,7 @@ async function fetchData2() {
     document.getElementById('heartratesingle').innerText = datapoints + ' bpm';
     return datapoints;
 }
-var timer = setInterval(fetchData2,1000)
+ var timer = setInterval(fetchData2,1000)
 dataheartbeat = fetchData2();
 
 async function fetchData3() {

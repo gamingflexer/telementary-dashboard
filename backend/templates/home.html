@@ -27,8 +27,7 @@
       <div class="cards">
         <div class="card">
           <div class="card-content">
-            <div class="number" id = "heartratesingle">89 <sub style="background-color: #BFD7ED;">bpm</sub> 
-            </div>
+            <div class="number" id = "heartratesingle">89</div>
           </div>
         </div>
       </div>
@@ -61,10 +60,9 @@
            <p id="csv"></p>
            <p id="json"></p>
            <div id="chartContainer" style="width: 650px; height: 500px; "></div>
-           <button type="button">Start</button>
-           <button type="button">Stop</button>
-        </div>
-       
+           <button onclick="chart()">Start</button>
+           <button onClick="window.location.reload();">Stop</button>
+          </div>
         <div class="maps">
           <div id="map" style="width: 700px; height: 600px;">
           <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>
@@ -80,9 +78,5 @@
   <script src="{{ url_for('static', filename='js/main.js')}}"></script>
   <script src="{{ url_for('static', filename='js/map.js')}}"></script>
 
-
-
-  
 </body>
 </html>
-
