@@ -3,10 +3,21 @@ from pymongo import MongoClient
 from models import CarInfo
 from serializers import CarInfoSerializer
 
+from flask import current_app, g
+from werkzeug.local import LocalProxy
+from flask_pymongo import PyMongo
 
-client = MongoClient(f"mongodb+srv://{username}:{password}@cluster0.zuo6mr7.mongodb.net/?retryWrites=true&w=majority")
-db = client.flask_db
-spark = db.spark
+from pymongo.errors import DuplicateKeyError, OperationFailure
+from bson.objectid import ObjectId
+from bson.errors import InvalidId
+
+# client = MongoClient(f"mongodb+srv://{username}:{password}@cluster0.zuo6mr7.mongodb.net/?retryWrites=true&w=majority")
+# db = client.flask_db
+# spark = db.spark
+
+
+
+
 
 # dumb code #fetch data from mongodb
 '''    projectData = Projects.objects.get(projectId=project_id)

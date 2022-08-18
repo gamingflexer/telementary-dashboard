@@ -128,3 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 backend/config.py
+backend2/spark/aurdino/migrations/0001_initial.py
+backend2/spark/aurdino/migrations/__init__.py
+backend2/spark/spark/__init__.py
