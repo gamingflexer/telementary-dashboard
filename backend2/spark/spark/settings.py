@@ -25,7 +25,6 @@ SECRET_KEY = 'n7ildjf@7o=r$4w$92h9_0rpnl-q^dv*ql8ak9s=7nfjvqwy=$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDITENTIALS = True
@@ -47,7 +46,7 @@ DATABASES = {
         }
     }
 }
-
+ALLOWED_HOSTS = ['n.n.n.n'] 
 # Application definition
 
 INSTALLED_APPS = [
