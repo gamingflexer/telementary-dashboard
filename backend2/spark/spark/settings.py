@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aurdino.apps.AurdinoConfig',
+    'rest_framework',
+    'corsheaders'
 ]
 CORS_ALLOWED_ORIGINS = ['http://*']
 
