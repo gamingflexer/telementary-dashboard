@@ -7,7 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 from aurdino.serializers import *
 
 # Create your views here.
-
+@csrf_exempt
+def index(request):
+    return JsonResponse({'data':"Test"})
 
 @csrf_exempt
 def location(request):
