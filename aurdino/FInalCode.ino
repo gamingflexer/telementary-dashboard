@@ -158,47 +158,73 @@ void loop() {
 
   // GPS sending data
   if (sim808.getGPS()) {
-    Serial.print(sim808.GPSdata.year);
-    Serial.print("/");
-    Serial.print(sim808.GPSdata.month);
-    Serial.print("/");
-    Serial.print(sim808.GPSdata.day);
-    Serial.print(" ");
-    Serial.print(sim808.GPSdata.hour);
-    Serial.print(":");
-    Serial.print(sim808.GPSdata.minute);
-    Serial.print(":");
-    Serial.print(sim808.GPSdata.second);
-    Serial.print(":");
-    Serial.println(sim808.GPSdata.centisecond);
+    // Serial.print(sim808.GPSdata.year);
+    // Serial.print("/");
+    // Serial.print(sim808.GPSdata.month);
+    // Serial.print("/");
+    // Serial.print(sim808.GPSdata.day);
+    // Serial.print(" ");
+    // Serial.print(sim808.GPSdata.hour);
+    // Serial.print(":");
+    // Serial.print(sim808.GPSdata.minute);
+    // Serial.print(":");
+    // Serial.print(sim808.GPSdata.second);
+    // Serial.print(":");
+    // Serial.println(sim808.GPSdata.centisecond);
 
     // Serial.print("latitude :");
     // Serial.println(sim808.GPSdata.lat, 6);
     sim808.latitudeConverToDMS();
-    Serial.print("latitude :");
-    Serial.print(sim808.latDMS.degrees);
-    Serial.print("\^");
-    Serial.print(sim808.latDMS.minutes);
-    Serial.print("\'");
-    Serial.print(sim808.latDMS.seconeds, 6);
-    Serial.println("\"");
+    // Serial.print("latitude :");
+    // Serial.print(sim808.latDMS.degrees);
+    // Serial.print("\^");
+    // Serial.print(sim808.latDMS.minutes);
+    // Serial.print("\'");
+    // Serial.print(sim808.latDMS.seconeds, 6);
+    // Serial.println("\"");
 
     // Serial.print("longitude :");
     // Serial.println(sim808.GPSdata.lon, 6);
     sim808.LongitudeConverToDMS();
-    Serial.print("longitude :");
-    Serial.print(sim808.longDMS.degrees);
-    Serial.print("\^");
-    Serial.print(sim808.longDMS.minutes);
-    Serial.print("\'");
-    Serial.print(sim808.longDMS.seconeds, 6);
-    Serial.println("\"");
+    // Serial.print("longitude :");
+    // Serial.print(sim808.longDMS.degrees);
+    // Serial.print("\^");
+    // Serial.print(sim808.longDMS.minutes);
+    // Serial.print("\'");
+    // Serial.print(sim808.longDMS.seconeds, 6);
+    // Serial.println("\"");
 
-    Serial.print("speed_kph :");
-    Serial.println(sim808.GPSdata.speed_kph);
-    Serial.print("heading :");
-    Serial.println(sim808.GPSdata.heading);
-    Serial.println();
+    // Serial.print("speed_kph :");
+    // Serial.println(sim808.GPSdata.speed_kph);
+    // Serial.print("heading :");
+    // Serial.println(sim808.GPSdata.heading);
+    Serial.println(String(sim808.GPSdata.year+","+sim808.GPSdata.month+","+sim808.GPSdata.day+","+sim808.GPSdata.hour+","+sim808.GPSdata.minute+","+sim808.GPSdata.second+","+sim808.GPSdata.centisecond+","+sim808.latDMS.degrees+","+sim808.latDMS.minutes+","+sim808.latDMS.seconeds+","+sim808.longDMS.degrees+","+sim808.longDMS.minutes+","+sim808.longDMS.seconeds+","+sim808.GPSdata.speed_kph+","+sim808.GPSdata.heading));
+
+    // Send POST request to save data of GPS
+
+    HTTPClient http;
+
+    http.begin("http://13.233.70.187:8000/aurdino/api/location");  
+    http.addHeader("Content-Type", "text/plain");             
+
+    int httpResponseCode = http.POST(String(sim808.GPSdata.year+","+sim808.GPSdata.month+","+sim808.GPSdata.day+","+sim808.GPSdata.hour+","+sim808.GPSdata.minute+","+sim808.GPSdata.second+","+sim808.GPSdata.centisecond+","+sim808.latDMS.degrees+","+sim808.latDMS.minutes+","+sim808.latDMS.seconeds+","+sim808.longDMS.degrees+","+sim808.longDMS.minutes+","+sim808.longDMS.seconeds+","+sim808.GPSdata.speed_kph+","+sim808.GPSdata.heading));    //add data here
+
+    if (httpResponseCode > 0) {
+
+      String response = http.getString();                       
+
+      Serial.println(httpResponseCode);   
+      Serial.println(response);           //Print request answer //if this comes as SUCESS, then the data is saved in the server //OM
+
+    } else {
+
+      Serial.print("Error on sending POST: FAILED");
+      Serial.println(httpResponseCode);
+
+    }
+
+    http.end();  
+    // Send POST request to save data of GPS
 
     // ESP to Arduino
     char data[100] = {0};
@@ -208,6 +234,33 @@ void loop() {
       Serial.print(" Heart Rate Received at mega: ");
       Serial.println(data);
     }
+
+    // Send POST request to save data of HeartBeat
+
+    HTTPClient http;
+
+    http.begin("http://13.233.70.187:8000/aurdino/api/heartbeat");  
+    http.addHeader("Content-Type", "text/plain");             
+
+    int httpResponseCode = http.POST(String(data));    //add data here
+
+    if (httpResponseCode > 0) {
+
+      String response = http.getString();                       
+
+      Serial.println(httpResponseCode);   
+      Serial.println(response);           //Print request answer //if this comes as SUCESS, then the data is saved in the server //OM
+
+    } else {
+
+      Serial.print("Error on sending POST: FAILED");
+      Serial.println(httpResponseCode);
+
+    }
+
+    http.end();  
+    // Send POST request to save data of HeartBeat
+
 
     // Temperature
     char cellTemp[100] = {0};
@@ -226,19 +279,38 @@ void loop() {
       Serial.print("Temp");
       Serial.print(i);
       Serial.print(": ");
-      //  Serial.print("\t");
       Serial.println(TX);
-      //  Serial.println("C\t\t");
-      //  Serial.print(TX + 273.15);        //Conversion to Kelvin
-      //  Serial.print("K\t\t");
-      //  Serial.print((TX * 1.8) + 32);    //Conversion to Fahrenheit
-      //  Serial.println("F");
-      //  delay(500);
+
     }
     Serial.println("...");
   }
+      // Send POST request to save data of GPS
 
-  //  delay(500);
+    // HTTPClient http;
+
+    // http.begin("http://13.233.70.187:8000/aurdino/api/cell");  
+    // http.addHeader("Content-Type", "text/plain");             
+
+    // int httpResponseCode = http.POST(String());    //add data here
+
+    // if (httpResponseCode > 0) {
+
+    //   String response = http.getString();                       
+
+    //   Serial.println(httpResponseCode);   
+    //   Serial.println(response);           //Print request answer //if this comes as SUCESS, then the data is saved in the server //OM
+
+    // } else {
+
+    //   Serial.print("Error on sending POST: FAILED");
+    //   Serial.println(httpResponseCode);
+
+    // }
+
+    // http.end();  
+    // // Send POST request to save data of GPS
+
+
 }
 
 //Cloud

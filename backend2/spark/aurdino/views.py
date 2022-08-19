@@ -20,7 +20,7 @@ def location(request):
         dataserlizer = locationNewSerilizer(data=temp)
         if locationNewSerilizer.is_valid(dataserlizer):
             locationNewSerilizer.save(dataserlizer)
-        return JsonResponse({'message': 'SUCESS'}, status=201)
+        return JsonResponse({'message': 'SUCESS | Location Saved'}, status=201)
     if request.method == 'GET':
         projectData = locationNew.objects.all()
         locSerlier = locationNewSerilizer(projectData, many=True)
@@ -35,7 +35,7 @@ def heartbeat(request):
         dataserlizer = heartNewSerilizer(data=temp)
         if heartNewSerilizer.is_valid(dataserlizer):
             heartNewSerilizer.save(dataserlizer)
-        return JsonResponse({'message': 'SUCESS'}, status=201)
+        return JsonResponse({'message': 'SUCESS | Heart Beat Saved'}, status=201)
     
     if request.method == 'GET':
         projectData = heartNew.objects.all()
@@ -51,7 +51,7 @@ def cell(request):
         dataserlizer = cellNewSerilizer(data=temp)
         if cellNewSerilizer.is_valid(dataserlizer):
             cellNewSerilizer.save(dataserlizer)
-        return JsonResponse({'message': 'SUCESS'}, status=201)
+        return JsonResponse({'message': 'SUCESS | Cell Temp Saved'}, status=201)
     if request.method == 'GET':
         projectData = cellNew.objects.all()
         cellSerlier = cellNewSerilizer(projectData, many=True)
