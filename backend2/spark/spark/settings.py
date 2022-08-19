@@ -45,7 +45,7 @@ DATABASES = {
         }
     }
 }
-ALLOWED_HOSTS = ['n.n.n.n'] 
+ALLOWED_HOSTS = [ 'localhost', '127.0.0.1','13.233.70.187']
 # Application definition
 
 INSTALLED_APPS = [
