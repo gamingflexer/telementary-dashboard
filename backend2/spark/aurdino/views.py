@@ -15,7 +15,9 @@ def index(request):
 def location(request):
     if request.method == 'POST':
         data0 = request.body.decode("utf-8")
-        dataserlizer = locationNewSerilizer(data=data0)
+        gpsyear,gpsmonth,gpsday,gpshour,gpsmin,gpssec,gpscentisec,latdegree,latmin,latsec,lngdegree,lngmin,lngsec,gpsspeed,gpsheading = data0.split(",")
+        temp = {'gpsyear':gpsyear,'gpsmonth':gpsmonth,'gpsday':gpsday,'gpshour':gpshour,'gpsmin':gpsmin,'gpssec':gpssec,'gpscentisec':gpscentisec,'latdegree':latdegree,'latmin':latmin,'latsec':latsec,'lngdegree':lngdegree,'lngmin':lngmin,'lngsec':lngsec,'gpsspeed':gpsspeed,'gpsheading':gpsheading}
+        dataserlizer = locationNewSerilizer(data=temp)
         if locationNewSerilizer.is_valid(dataserlizer):
             locationNewSerilizer.save(dataserlizer)
         return JsonResponse({'message': 'SUCESS'}, status=201)
@@ -28,7 +30,9 @@ def location(request):
 def heartbeat(request):
     if request.method == 'POST':
         data0 = request.body.decode("utf-8")
-        dataserlizer = heartNewSerilizer(data=data0)
+        beat = data0.split(',')
+        temp = {'beat':beat}
+        dataserlizer = heartNewSerilizer(data=temp)
         if heartNewSerilizer.is_valid(dataserlizer):
             heartNewSerilizer.save(dataserlizer)
         return JsonResponse({'message': 'SUCESS'}, status=201)
@@ -42,7 +46,9 @@ def heartbeat(request):
 def cell(request):
     if request.method == 'POST':
         data0 = request.body.decode("utf-8")
-        dataserlizer = cellNewSerilizer(data=data0)
+        cell0, cell1, cell2, cell3, cell4, cell5= data0.split(',')
+        temp = {'cell0':cell0, 'cell1':cell1, 'cell2':cell2, 'cell3':cell3, 'cell4':cell4, 'cell5':cell5}
+        dataserlizer = cellNewSerilizer(data=temp)
         if cellNewSerilizer.is_valid(dataserlizer):
             cellNewSerilizer.save(dataserlizer)
         return JsonResponse({'message': 'SUCESS'}, status=201)
