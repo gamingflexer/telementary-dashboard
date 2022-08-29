@@ -29,6 +29,7 @@ function chart() {
                 updateChart() 
                 if (dataPoints.length > 10) {
                     dataPoints.shift()
+                    dataPoints.shift()
                 }
                 cnt++;
                 if(cnt > 40){
@@ -39,7 +40,7 @@ function chart() {
                         
                     });
                 }
-            }, 1000);
+            }, 2100);
         });
     }
 }
@@ -48,17 +49,17 @@ function chart() {
 // Get call for single Heart beat
 
 async function fetchData2() {
-    const url = "api/heartbeat-single";
+    const url = "api/heartbeat";
     const response = await fetch(url);
-    const datapoints = await response.text();
-    document.getElementById('heartratesingle').innerText = datapoints + ' bpm';
+    const datapoints = await response.json();
+    document.getElementById('heartratesingle').innerText = datapoints[0][1] + ' bpm';
     return datapoints;
 }
- var timer = setInterval(fetchData2,1000)
+ var timer = setInterval(fetchData2,2100)
 dataheartbeat = fetchData2();
 
 async function fetchData3() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp1').innerText = datapoints;
@@ -68,7 +69,7 @@ var timer = setInterval(fetchData3,1000)
 dataheartbeat = fetchData3();
 
 async function fetchData4() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp2').innerText = datapoints;
@@ -78,7 +79,7 @@ var timer = setInterval(fetchData4,1000)
 dataheartbeat = fetchData4();
 
 async function fetchData5() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp3').innerText = datapoints;
@@ -88,31 +89,31 @@ var timer = setInterval(fetchData5,1000)
 dataheartbeat = fetchData5();
 
 async function fetchData6() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp4').innerText = datapoints;
     return datapoints;
 }
-var timer = setInterval(fetchData6,1000)
+var timer = setInterval(fetchData6,3000)
 dataheartbeat = fetchData6();
 
 async function fetchData7() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp5').innerText = datapoints;
     return datapoints;
 }
-var timer = setInterval(fetchData7,1000)
+var timer = setInterval(fetchData7,3000)
 dataheartbeat = fetchData7();
 
 async function fetchData8() {
-    const url = "api/heartbeat-single";
+    const url = "api/cell";
     const response = await fetch(url);
     const datapoints = await response.text();
     document.getElementById('temp6').innerText = datapoints;
     return datapoints;
 }
-var timer = setInterval(fetchData8,1000)
+var timer = setInterval(fetchData8,3000)
 dataheartbeat = fetchData8();

@@ -17,14 +17,20 @@ def index():
 def heartbeat():
     if request.method == 'GET':
         t = time.localtime(time.time())
-        return jsonify([[t.tm_sec,rd.randint(80.0, 100.0)]])
+        return jsonify([[t.tm_sec,rd.randint(80.0, 88.0)]])
 
-
+@app.route('/api/cell', methods=['GET'])
+def cell():
+    if request.method == 'GET':
+        t = time.localtime(time.time())
+        return jsonify(rd.randint(56.0, 60.0))
+    
+    
 @app.route('/api/heartbeat-single', methods=['GET'])
 def heartbeat_single():
     if request.method == 'GET':
         t = time.localtime(time.time())
-        return jsonify(rd.randint(80.0, 100.0))
+        return jsonify([[t.tm_sec,rd.randint(80.0, 88.0)]])
 
 @app.route('/api/location', methods=['GET'])
 def location():
