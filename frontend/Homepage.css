@@ -129,13 +129,17 @@
   color: #D3F4FB;
   text-align: center;
 }
-@media (max-width: 300px){
+@media (max-width: 900px){
+  .logo .img
+  {
+    left: 3--px;
+  }
   .sidebar{
-    width: 60px;
+    width: 900px;
   }
   .main{
-    left : 60px;
-    width: calc(100% - 60px);
+    left : 900px;
+    width: calc(100% - 900px);
   }
 }
 
