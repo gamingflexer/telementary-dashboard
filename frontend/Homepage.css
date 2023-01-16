@@ -6,9 +6,10 @@
 
  .topbar
  {
+  float: left;
   position: fixed;
   background: #000;
-  height: 150px;
+  height: 10%;
   width: 100%;
   align-items: center;
   z-index: 1;
@@ -18,7 +19,7 @@
  {
   position: absolute;
   top: 0;
-  left: 700px;
+  left: calc(35%);
   height: 100%;
   width: 500px;
   object-fit: cover;
@@ -27,7 +28,7 @@
  .sidebar{
   position: fixed;
   width: 400px;
-  top: 150px;
+  top: calc(10%);
   background: #000;
   height: calc(100% );
   overflow-x: hidden;
@@ -63,10 +64,10 @@
  .main
  {
   position: absolute;
-  top: 150px;
-  width: calc(100% - 400px);
-  left: 400px; 
-  min-height: calc(150vh - 60px);
+  top: calc(10%);
+  width: calc(100%);
+  left: calc(30%); 
+  min-height: calc(100%);
   background: #000;
  }
 
@@ -130,16 +131,21 @@
   text-align: center;
 }
 @media (max-width: 900px){
-  .logo .img
-  {
-    left: 3--px;
-  }
+  .logo img
+ {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  height: 100%;
+  width: 500px;
+  object-fit: cover;
+}
   .sidebar{
-    width: 900px;
+    width: calc(20%);
   }
   .main{
-    left : 900px;
-    width: calc(100% - 900px);
+    left :calc(20%);
+    width: calc(80%);
   }
 }
 

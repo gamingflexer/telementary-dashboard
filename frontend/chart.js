@@ -8,7 +8,7 @@
                 label: 'Heartbeat',
                 data: [100, 160, 110, 150, 90, 170, 100, 140, 90, 160, 120, 160, 180, 100, 160],
                 backgroundColor: [
-                    '#68A4F1',
+                    '#ffffff',
 
                 ],
                 borderColor: [

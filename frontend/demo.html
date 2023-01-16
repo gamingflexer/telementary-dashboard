@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="demo.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="speedometer.js"></script>
+</head>
+
+<body onload='draw(0);'>
+  <div class="flex-container">
+    <div class="topbar">
+      <img src="logo_tt.png" alt="logo_t">
+    </div>
+    <div class="temp">TEMPERATURE
+      <table style="width:100%">
+        <tr>
+          <th>Cell Temp 1</th>
+          <th>Cell Temp 2</th>
+          <th>Cell Temp 3</th>
+          <th>Cell Temp 4</th>
+          <th>Cell Temp 5</th>
+          <th>Cell Temp 6</th>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>16</td>
+          <td>16</td>
+          <td>16</td>
+          <td>14</td>
+          <td>10</td>
+        </tr>
+      </table>
+    </div>
+    <div class="graph">
+      <div class="flex-container1">
+        <div>
+          <canvas id="myChart" height="300px" width="670px"></canvas>
+          <script src="char.js"></script>
+          <p>Graph</p>
+        </div>
+        <div>
+          <canvas id="tutorial" width="440" height="270">
+            Canvas not available.
+          </canvas>
+          <p>Tachometer</p>
+          <!-- <div>
+            <form id="drawTemp">
+              <input type="text" id="txtSpeed" name="txtSpeed" value="20" maxlength="2" >
+              <input type="button" value="Draw" onclick="drawWithInputValue();">
+            </form>
+          </div> -->
+        </div>
+        <div>
+          <canvas id="myCha" style="width:670px; height: 300px;"></canvas>
+          <script src="cha.js"></script>
+          <p>Graph</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
